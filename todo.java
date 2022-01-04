@@ -17,13 +17,13 @@ import java.io.InputStreamReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-class delete extends JFrame implements ActionListener{
+class todo extends JFrame implements ActionListener{
   public static void main(String args[]){
-    deletepane();
+    todopane();
   }
 
-  public static void deletepane(){
-    delete frame = new delete("delete");
+  public static void todopane(){
+    todo frame = new todo("todo");
     frame.setVisible(true);
   }
 
@@ -34,7 +34,7 @@ class delete extends JFrame implements ActionListener{
   int sc_where = 0;
   int data_line = 0;
 
-  delete(String title){
+  todo(String title){
     setTitle(title);
     setBounds(100,100,600,400);
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -112,7 +112,7 @@ class delete extends JFrame implements ActionListener{
           fw.close();
           this.setVisible(false);
           System.out.println("----------");
-          deletepane();
+          todopane();
         }catch(IOException ee){
           System.out.println("no file");
           System.exit(0);
