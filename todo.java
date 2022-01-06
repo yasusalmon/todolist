@@ -33,6 +33,8 @@ class todo extends JFrame implements ActionListener{
   JLabel[] text = new JLabel[10000];
   int sc_where = 0;
   int data_line = 0;
+  JTextField inputfield;
+  JButton input_button;
 
   todo(String title){
     setTitle(title);
@@ -40,6 +42,15 @@ class todo extends JFrame implements ActionListener{
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     JPanel p = new JPanel();
+
+    inputfield = new JTextField(20);
+    input_button = new JButton("Get");
+    input_button.addActionListener(this);
+    p.add(inputfield);
+    p.add(input_button);
+
+
+
 
     Container contentPane = getContentPane();
     contentPane.add(p,BorderLayout.CENTER);
@@ -92,6 +103,10 @@ class todo extends JFrame implements ActionListener{
   }
 
   public void actionPerformed(ActionEvent e){
+    if(e.getSource() == input_button){
+
+      return;
+    }
     for(int i = 0;i<20;i++){
       if(e.getSource() == button[i]){
         String delete_content = "";
