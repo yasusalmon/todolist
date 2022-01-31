@@ -81,7 +81,7 @@ class todo extends JFrame implements ActionListener{
           System.out.println(list_text);
           data_split[text_n] = list_text;
           text[text_n] = new JLabel(list_text);
-          text[text_n].setFont(new Font( "‚l‚r ƒSƒVƒbƒN" , Font.BOLD, 15));
+          text[text_n].setFont(new Font( "Meiryo UI." , Font.BOLD, 15));
           button[text_n] = new JButton("Finished");
           button[text_n].addActionListener(this);//kore daiji wasuretete komatta
           p.add(text[text_n]);
@@ -104,7 +104,30 @@ class todo extends JFrame implements ActionListener{
 
   public void actionPerformed(ActionEvent e){
     if(e.getSource() == input_button){
-
+      //----------
+      boolean input_judge = false;
+      //sc_int = sc_where
+      String field_content = inputfield.getText();
+      if(field_content == ""){
+        field_content = "null";
+      }
+      data[sc_where] = data[sc_where] + "," + field_content;
+      try{
+        File file = new File("input.txt");
+        FileWriter fw = new FileWriter(file);
+        for(int i = 0;i<data_line;i++){
+          fw.write(data[i]);
+          fw.write("\r\n");
+        }
+        fw.close();
+        this.setVisible(false);
+        System.out.println("----------");
+        todopane();
+      }catch(IOException ee){
+        System.out.println("no file");
+        System.exit(0);
+      }
+      //-----------
       return;
     }
     for(int i = 0;i<20;i++){
